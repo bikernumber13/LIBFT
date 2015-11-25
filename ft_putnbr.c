@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 14:04:13 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/25 18:55:43 by mbouhier         ###   ########.fr       */
+/*   Created: 2015/11/25 14:07:45 by mbouhier          #+#    #+#             */
+/*   Updated: 2015/11/25 14:27:58 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(int ac, char **av)
+void	ft_putnbr(int n)
 {
-	if (ac != 2)
+	if (n < 0)
 	{
-		printf("Tu es un caca !!");
+		ft_putchar('-');
+		n = -n;
 	}
-	else
+	if (n == 0)
 	{
-	printf("Result => %s\n\n",ft_strdup(av[1]));
+		ft_putchar('0');
 	}
-	return (0);
+	if ((n / 10) != 0)
+	{
+		ft_putnbr(n / 10);
+	}
+	ft_putchar((n % 10) + '0');
 }

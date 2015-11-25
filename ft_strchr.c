@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 14:04:13 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/25 18:55:43 by mbouhier         ###   ########.fr       */
+/*   Created: 2015/11/25 13:01:44 by mbouhier          #+#    #+#             */
+/*   Updated: 2015/11/25 16:19:40 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(int ac, char **av)
+char	*ft_strchr(const char *s, int c)
 {
-	if (ac != 2)
+	int count;
+	int len;
+
+	count = 0;
+	len = ft_strlen(s) + 1;
+	while (count <= len)
 	{
-		printf("Tu es un caca !!");
+		if (c == s[count])
+		{
+			s = &s[count];
+			return ((char *)s);
+		}
+		count++;
 	}
-	else
-	{
-	printf("Result => %s\n\n",ft_strdup(av[1]));
-	}
-	return (0);
+	return (NULL);
 }

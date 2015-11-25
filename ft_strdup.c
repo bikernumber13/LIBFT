@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 14:04:13 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/25 18:55:43 by mbouhier         ###   ########.fr       */
+/*   Created: 2015/11/25 17:56:36 by mbouhier          #+#    #+#             */
+/*   Updated: 2015/11/25 18:18:45 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(int ac, char **av)
+char	*ft_strdup(const char *s1)
 {
-	if (ac != 2)
-	{
-		printf("Tu es un caca !!");
-	}
-	else
-	{
-	printf("Result => %s\n\n",ft_strdup(av[1]));
-	}
-	return (0);
+	char	*result;
+
+	result = (char*)malloc(sizeof(*s1) * (ft_strlen(s1) + 1));
+	return ((char *)(ft_strcpy(result, s1)));
 }

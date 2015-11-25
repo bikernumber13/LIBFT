@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 14:04:13 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/25 18:55:43 by mbouhier         ###   ########.fr       */
+/*   Created: 2015/11/24 14:06:49 by mbouhier          #+#    #+#             */
+/*   Updated: 2015/11/24 15:04:14 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(int ac, char **av)
+char	*ft_strncpy(char *dst, const char *src, size_t n)
 {
-	if (ac != 2)
+	size_t	count_size;
+
+	count_size = 0;
+	while (count_size < n)
 	{
-		printf("Tu es un caca !!");
+		dst[count_size] = src[count_size];
+		count_size++;
 	}
-	else
-	{
-	printf("Result => %s\n\n",ft_strdup(av[1]));
-	}
-	return (0);
+	dst[count_size] = '\0';
+	return (dst);
 }

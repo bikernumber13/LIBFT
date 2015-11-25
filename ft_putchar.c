@@ -6,11 +6,11 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 15:55:19 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/23 16:09:18 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/11/24 12:18:48 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putchar(char c)
 {

@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 14:04:13 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/25 18:55:43 by mbouhier         ###   ########.fr       */
+/*   Created: 2015/11/25 11:01:25 by mbouhier          #+#    #+#             */
+/*   Updated: 2015/11/25 11:38:28 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(int ac, char **av)
+int		ft_isalpha(int c)
 {
-	if (ac != 2)
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 	{
-		printf("Tu es un caca !!");
+		return (1);
 	}
 	else
 	{
-	printf("Result => %s\n\n",ft_strdup(av[1]));
+		return (0);
 	}
-	return (0);
 }

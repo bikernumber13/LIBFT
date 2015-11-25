@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 14:04:13 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/25 18:55:43 by mbouhier         ###   ########.fr       */
+/*   Created: 2015/11/25 12:09:41 by mbouhier          #+#    #+#             */
+/*   Updated: 2015/11/25 12:21:05 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(int ac, char **av)
+int		ft_isalnum(int c)
 {
-	if (ac != 2)
+	if (ft_isalpha(c) == 1 || ft_isdigit(c) == 1)
 	{
-		printf("Tu es un caca !!");
+		return (1);
 	}
 	else
 	{
-	printf("Result => %s\n\n",ft_strdup(av[1]));
+		return (0);
 	}
-	return (0);
 }

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 14:04:13 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/25 18:55:43 by mbouhier         ###   ########.fr       */
+/*   Created: 2015/11/24 18:16:23 by mbouhier          #+#    #+#             */
+/*   Updated: 2015/11/24 18:17:56 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(int ac, char **av)
+void	ft_putendl(char const *s)
 {
-	if (ac != 2)
+	int count;
+
+	count = 0;
+	while (s[count] != '\0')
 	{
-		printf("Tu es un caca !!");
+		ft_putchar(s[count]);
+		count++;
 	}
-	else
-	{
-	printf("Result => %s\n\n",ft_strdup(av[1]));
-	}
-	return (0);
+	ft_putchar('\n');
 }

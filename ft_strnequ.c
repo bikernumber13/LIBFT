@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 14:04:13 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/25 18:55:43 by mbouhier         ###   ########.fr       */
+/*   Created: 2015/11/24 18:51:48 by mbouhier          #+#    #+#             */
+/*   Updated: 2015/11/24 19:16:18 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(int ac, char **av)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	if (ac != 2)
+	size_t	count;
+	int		verif;
+
+	verif = 1;
+	count = 0;
+	while (count < n)
 	{
-		printf("Tu es un caca !!");
+		if (s1[count] != s2[count])
+		{
+			verif = 0;
+			return (verif);
+		}
+		count++;
 	}
-	else
-	{
-	printf("Result => %s\n\n",ft_strdup(av[1]));
-	}
-	return (0);
+	return (verif);
 }

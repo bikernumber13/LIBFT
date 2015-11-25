@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 14:04:13 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/25 18:55:43 by mbouhier         ###   ########.fr       */
+/*   Created: 2015/11/24 15:38:16 by mbouhier          #+#    #+#             */
+/*   Updated: 2015/11/24 15:41:50 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(int ac, char **av)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	if (ac != 2)
+	int		size_s1;
+	size_t	count;
+
+	size_s1 = ft_strlen(s1);
+	count = 0;
+	while (count < n)
 	{
-		printf("Tu es un caca !!");
+		s1[size_s1] = s2[count];
+		count++;
+		size_s1++;
 	}
-	else
-	{
-	printf("Result => %s\n\n",ft_strdup(av[1]));
-	}
-	return (0);
+	s1[size_s1] = '\0';
+	return (s1);
 }
