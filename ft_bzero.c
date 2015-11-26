@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 14:07:45 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/26 18:25:47 by mbouhier         ###   ########.fr       */
+/*   Created: 2015/11/26 12:47:52 by mbouhier          #+#    #+#             */
+/*   Updated: 2015/11/26 13:17:08 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_bzero(void *s, size_t n)
 {
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n = -n;
-	}
-	if (n == 0)
-	{
-		ft_putchar('0');
-	}
-	if ((n / 10) != 0)
-	{
-		ft_putnbr(n / 10);
-	}
-	ft_putchar((n % 10) + '0');
+	ft_memset(s, '\0', n);
 }

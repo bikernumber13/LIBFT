@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 14:07:45 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/26 18:25:47 by mbouhier         ###   ########.fr       */
+/*   Created: 2015/11/26 16:07:06 by mbouhier          #+#    #+#             */
+/*   Updated: 2015/11/26 18:25:45 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+/*#include "libft.h"
 
-void	ft_putnbr(int n)
+char	*ft_itoa(int n)
 {
+	char	result;
+	int		count;
+
+	count = 0;
 	if (n < 0)
 	{
-		ft_putchar('-');
-		n = -n;
+		result[0] = '-';
+		count++;
 	}
 	if (n == 0)
-	{
-		ft_putchar('0');
-	}
+		result[0] = '0';
 	if ((n / 10) != 0)
 	{
-		ft_putnbr(n / 10);
+		ft_itoa(n / 10);
 	}
-	ft_putchar((n % 10) + '0');
-}
+	result[count++] = ((n % 10) + '0');
+}*/
