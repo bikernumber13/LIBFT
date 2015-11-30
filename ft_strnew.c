@@ -6,7 +6,7 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 11:21:16 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/26 13:15:08 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/11/30 17:57:28 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 char	*ft_strnew(size_t size)
 {
-	return ((char *)ft_memalloc(size));
+	return ((char *)ft_memalloc(size + 1));
 }

@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 14:07:45 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/30 16:27:32 by mbouhier         ###   ########.fr       */
+/*   Created: 2015/11/30 15:49:29 by mbouhier          #+#    #+#             */
+/*   Updated: 2015/11/30 15:57:49 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n = -n;
-	}
-	if (n == 0)
-	{
-		ft_putchar('0');
-	}
-	if ((n / 10) != 0)
-	{
-		ft_putnbr(n / 10);
-	}
-	ft_putchar((n % 10) + '0');
+	char	*str;
+
+	if (!dst || !src)
+		return (NULL);
+	if ((str = (char *)malloc(sizeof(*str) * len)) == NULL)
+		return (NULL);
+	ft_memcpy(str, src, len);
+	ft_memcpy(dst, str, len);
+	return (dst);
 }

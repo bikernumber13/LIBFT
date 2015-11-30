@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 15:15:22 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/26 18:25:44 by mbouhier         ###   ########.fr       */
+/*   Created: 2015/11/30 16:00:07 by mbouhier          #+#    #+#             */
+/*   Updated: 2015/11/30 16:02:46 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,29 @@
 int		ft_atoi(const char *str)
 {
 	int	result;
-	int	negative;
+	int	count;
+	int	sign;
 
+	sign = 1;
+	count = 0;
 	result = 0;
-	negative = 1;
-	while (*str != '\0')
+	while (str[count] == ' ' || str[count] == '\n' || str[count] == '\t' ||
+			str[count] == '\v' || str[count] == '\f' || str[count] == '\r')
+		count++;
+	if (str[count] == '-')
 	{
-		if (((ft_isdigit(*str)) == 1))
-			result = result * 10 + *str - '0';
-		else if (*str == '-')
-		{
-			if (((*str - 1) == '+') || (*str + 1) == '+')
-				return (0);
-			else
-				negative = -1;
-		}
-		else if (((*str - 1) == (ft_isdigit(*str) == 1)) && (*str == 32))
-			break;
-		str++;
+		sign = -1;
+		count++;
 	}
-	return (result * negative);
+	else if (str[count] == '+')
+		count++;
+	while (ft_isdigit(str[count]) == 1)
+	{
+		if (str[count] >= '0' && str[count] <= '9')
+			result = result * 10 + (str[count] - '0');
+		else if (str[count++] == ' ')
+			return (result * sign);
+		count++;
+	}
+	return (result * sign);
 }

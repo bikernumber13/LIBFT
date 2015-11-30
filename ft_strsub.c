@@ -1,6 +1,16 @@
-/*# include "libft.h"*/
-#include <string.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/30 11:21:36 by mbouhier          #+#    #+#             */
+/*   Updated: 2015/11/30 17:47:46 by mbouhier         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+# include "libft.h"
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
@@ -12,7 +22,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	while (count < len)
 	{
-		str[count] = s[start - 1];
+		str[count] = s[start];
 		count++;
 		start++;
 	}
