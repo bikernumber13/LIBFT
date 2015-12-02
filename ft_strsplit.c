@@ -6,73 +6,61 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:20:39 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/30 15:04:20 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/12/02 18:19:31 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static int	ft_count_word(char const *s, char c)
+static int		ft_countword(char const *s, char c)
 {
-	int	index;
-	int	count;
+	int		i;
+	int		count;
 
-	index = 0;
+	i = 0;
 	count = 0;
-	while (!s[index])
+	while (s[i] != '\0')
 	{
-		if (s[index] != c)
+		if (s[i] != c)
 		{
-			while (s[index] != c)
-				index++;
+			while (s[i] != c && s[i])
+				i++;
 			count++;
 		}
 		else
-			index++;
+			i++;
 	}
 	return (count);
 }
 
-static	int	ft_len_word(char const *s, char c, int index)
-{
-	int	len;
-
-	len = 0;
-	while (s[index] != c)
-		len++;
-	return (len);
-}
-
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char	**tab;
-	int		count_word;
-	int		index_tab;
-	int		index_s;
-	int		count_tab;
+	size_t	i;
+	size_t	j;
+	size_t	len;
 
-	index_tab = 0;
-	index_s = 0;
-	count_word = ft_count_word(s, c);
-	if ((tab = (char**)malloc(sizeof(**tab)*(count_word + 1))) == NULL)
+	i = 0;
+	j = 0;
+	if (!s || !c)
 		return (NULL);
-	while (!s[index_s])
+	if (!(tab = (char**)malloc(sizeof(**tab) * (ft_countword(s, c) + 1))))
+		return (NULL);
+	while (s[i])
 	{
-		if (s[index_s] != c)
-		{
-			if ((tab[index_tab] = (char*)malloc(sizeof(*tab)*(ft_len_word(s,c, index_s) + 1))) == NULL)
-					return (NULL);
-			while (s[index_s] != c)
-			{
-				tab[index_tab][count_tab] = s[index_s];
-				index_s++;
-				count_tab++;
-			}
-			tab[index_tab][count_tab] = '\0';
-			count_tab = 0;
-		}
+		if (s[i] == c)
+			i++;
 		else
-			index_s++;
+		{
+			len = 0;
+			while (s[i + len] != c && s[i + len])
+				len++;
+			ft_strsub(s, i, len);
+			tab[j++] = ft_strsub(s, i, len);
+			i = i + len;
+		}
 	}
+	tab[j] = 0;
 	return (tab);
 }

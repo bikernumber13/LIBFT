@@ -6,13 +6,26 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 16:00:07 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/30 16:02:46 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/12/01 11:54:17 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+static int	ft_solve(const char *str, int count, int result, int sign)
+{
+	while (ft_isdigit(str[count]) == 1)
+	{
+		if (str[count] >= '0' && str[count] <= '9')
+			result = result * 10 + (str[count] - '0');
+		else if (str[count++] == ' ')
+			return (result * sign);
+		count++;
+	}
+	return (result);
+}
+
+int			ft_atoi(const char *str)
 {
 	int	result;
 	int	count;
@@ -31,13 +44,6 @@ int		ft_atoi(const char *str)
 	}
 	else if (str[count] == '+')
 		count++;
-	while (ft_isdigit(str[count]) == 1)
-	{
-		if (str[count] >= '0' && str[count] <= '9')
-			result = result * 10 + (str[count] - '0');
-		else if (str[count++] == ' ')
-			return (result * sign);
-		count++;
-	}
+	result = ft_solve(str, count, result, sign);
 	return (result * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 14:39:37 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/30 17:22:46 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/12/01 19:22:58 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,27 @@
 
 char	*ft_strstr(const char *s1, const char *s2)
 {
-	int			count_s1;
-	int			count_s2;
-	int			count_save;
-	const char	*save;
+	size_t		i;
+	size_t		j;
+	size_t		k;
 
-	count_s1 = 0;
-	save = s1;
-	count_save = 0;
+	i = 0;
+	j = 0;
 	if (s2[0] == '\0')
 		return ((char *)s1);
-	while (s1[count_save] != '\0')
+	while (s1[i])
 	{
-		count_s2 = 0;
-		if (s1[count_save] == s2[count_s2])
+		j = i;
+		k = 0;
+		while (s1[j] == s2[k])
 		{
-			save = &s1[count_save];
-			count_s1 = count_save;
-			while (s1[count_s1] == s2[count_s2])
-			{
-				count_s1++;
-				count_s2++;
-				if (s2[count_s2] == '\0')
-					return ((char *)save);
-			}
+			j++;
+			k++;
+			if (s2[k] == '\0')
+				return ((char *)&s1[i]);
 		}
-		count_save++;
+	i++;
 	}
 	return (NULL);
+
 }

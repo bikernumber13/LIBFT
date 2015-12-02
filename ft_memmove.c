@@ -6,7 +6,7 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 15:49:29 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/30 15:57:49 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/12/01 11:47:25 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		return (NULL);
 	ft_memcpy(str, src, len);
 	ft_memcpy(dst, str, len);
+	free(str);
 	return (dst);
 }

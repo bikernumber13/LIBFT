@@ -6,52 +6,68 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 16:07:06 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/30 17:34:03 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/12/02 14:58:38 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_len(int nbr)
+static int	ft_len(int n)
 {
 	int result;
 
 	result = 0;
-	if (nbr == 0)
+	if (n == 0)
 		return (result + 1);
-	while (nbr > 0)
+	while (n > 0)
 	{
-			nbr = nbr / 10;
-			result++;
+		n = n / 10;
+		result++;
 	}
 	return (result);
 }
 
-char		*ft_itoa(int nbr)
+static char	*ft_zero(char *str)
+{
+	str[0] = '0';
+	str[1] = '\0';
+	return (str);
+}
+
+static char	*ft_solve(char *str, int count, int n)
+{
+	while (n > 0)
+	{
+		str[count--] = (n % 10) + '0';
+		n /= 10;
+	}
+	return (str);
+}
+
+char		*ft_itoa(int n)
 {
 	char	*str;
 	int		count;
 	int		sign;
 
-	if (nbr < 0)
+	sign = 0;
+	if (n == -2147483648)
+		return ("-2147483648");
+	if (n < 0)
 	{
-			nbr = -nbr;
-			count = ft_len(nbr) + 1;
-			sign = 1;
+		n = -n;
+		count = ft_len(n) + 1;
+		sign = 1;
 	}
 	else
-		count = ft_len(nbr);
+		count = ft_len(n);
 	if ((str = (char *)malloc(sizeof(*str) * (count + 1))) == NULL)
 		return (NULL);
-	if (nbr == 0)
-		str[0] = '0';
+	if (n == 0)
+		return (ft_zero(str));
 	str[count--] = '\0';
-	while (nbr > 0)
-	{
-			str[count--] = (nbr % 10) + '0';
-			nbr /= 10;
-	}
+	str = ft_solve(str, count, n);
 	if (sign == 1)
-			str[0] = '-';
+		str[0] = '-';
 	return (str);
 }

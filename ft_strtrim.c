@@ -6,35 +6,31 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 11:22:08 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/30 11:36:24 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/12/02 12:55:19 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int ft_blanks(char c)
+{
+	if (c == 32 || c == '\n' || c == '\t')
+		return (1);
+	return (0);
+}
+
 char		*ft_strtrim(char const *s)
 {
-	char	*str;
-	size_t	count;
-	size_t	start;
-	size_t	len;
+	int	len;
+	int	i;
 
-	count = 0;
-	len = ft_strlen(s) - 1;
-	while (s[count] == 32 || s[count] == ',' || s[count] == '\n')
-		count++;
-	start = count - 1;
-	while (s[len] == 32 || s[len] == ',' || s[len] == '\n')
-		len--;
-	if ((str = (char *)malloc(sizeof(*str) * (len - start + 1))) == NULL)
+	len = ft_strlen(s);
+	i = 0;
+	if (!s)
 		return (NULL);
-	count = 0;
-	while (start <= len)
-	{
-		str[count] = s[start];
-		count++;
-		start++;
-	}
-	str[count] = '\0';
-	return (str);
+	while (ft_blanks(s[i]) == 1)
+		i++;
+	while (ft_blanks(s[len - 1]) == 1)
+		len--;
+	return (ft_strsub(s, i, (len != 0) ? len -= i : len));
 }
