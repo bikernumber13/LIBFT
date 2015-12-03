@@ -6,7 +6,7 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 16:20:49 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/12/01 19:22:59 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/12/03 11:16:05 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 			if (s2[k] == '\0')
 				return ((char *)&s1[i]);
 		}
-	i++;
+		i++;
 	}
 	return (NULL);
 }

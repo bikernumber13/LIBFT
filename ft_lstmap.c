@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/30 15:49:29 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/12/03 17:55:34 by mbouhier         ###   ########.fr       */
+/*   Created: 2015/12/03 15:31:20 by mbouhier          #+#    #+#             */
+/*   Updated: 2015/12/03 17:05:48 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	char	*str;
+	t_list	*new;
 
-	if ((str = (char *)malloc(sizeof(*str) * len)) == NULL)
-		return (NULL);
-	ft_memcpy(str, src, len);
-	ft_memcpy(dst, str, len);
-	free(str);
-	return (dst);
+	if (lst)
+	{
+		new = f(lst);
+		new->next = ft_lstmap(lst->next, f);
+		return (new);
+	}
+	return (NULL);
 }
