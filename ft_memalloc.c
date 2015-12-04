@@ -6,11 +6,12 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 12:17:10 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/12/03 18:41:14 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/12/04 17:43:46 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 void	*ft_memalloc(size_t size)
 {

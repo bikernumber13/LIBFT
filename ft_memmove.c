@@ -6,11 +6,12 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 15:49:29 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/12/03 17:55:34 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/12/04 17:44:41 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {

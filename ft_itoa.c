@@ -6,11 +6,12 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 16:07:06 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/12/02 14:58:38 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/12/04 17:23:16 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static int	ft_len(int n)
 {
@@ -25,13 +26,6 @@ static int	ft_len(int n)
 		result++;
 	}
 	return (result);
-}
-
-static char	*ft_zero(char *str)
-{
-	str[0] = '0';
-	str[1] = '\0';
-	return (str);
 }
 
 static char	*ft_solve(char *str, int count, int n)
@@ -52,7 +46,7 @@ char		*ft_itoa(int n)
 
 	sign = 0;
 	if (n == -2147483648)
-		return ("-2147483648");
+		return (ft_strdup("-2147483648"));
 	if (n < 0)
 	{
 		n = -n;
@@ -64,7 +58,7 @@ char		*ft_itoa(int n)
 	if ((str = (char *)malloc(sizeof(*str) * (count + 1))) == NULL)
 		return (NULL);
 	if (n == 0)
-		return (ft_zero(str));
+		str[0] = '0';
 	str[count--] = '\0';
 	str = ft_solve(str, count, n);
 	if (sign == 1)

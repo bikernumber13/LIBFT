@@ -6,11 +6,12 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 11:22:08 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/12/03 11:17:28 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/12/04 17:37:59 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static int	ft_blanks(char c)
 {
@@ -24,6 +25,8 @@ char		*ft_strtrim(char const *s)
 	int		len;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	len = ft_strlen(s);
 	i = 0;
 	if (!s)

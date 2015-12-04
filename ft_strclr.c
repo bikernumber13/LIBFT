@@ -6,7 +6,7 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 19:17:52 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/24 19:23:23 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/12/04 14:40:31 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ void	ft_strclr(char *s)
 	int	count;
 
 	count = 0;
-	while (s[count] != '\0')
+	if (s)
 	{
-		s[count] = '\0';
-		count++;
+		while (s[count] != '\0')
+		{
+			s[count] = '\0';
+			count++;
+		}
 	}
 }

@@ -6,16 +6,14 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 16:47:54 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/12/03 17:24:08 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/12/04 17:39:16 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <unistd.h>
 # include <string.h>
-# include <stdlib.h>
 
 typedef struct		s_list
 {
