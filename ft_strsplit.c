@@ -6,7 +6,7 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 13:20:39 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/12/03 19:08:44 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/12/04 11:46:46 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char			**ft_strsplit(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	if (!(tab = (char**)malloc(sizeof(char *) * (ft_countword(s, c) + 1))))
+	if (!(tab = (char**)malloc(sizeof(char*) * (ft_countword(s, c) + 1))))
 		return (NULL);
 	while (s[i])
 	{

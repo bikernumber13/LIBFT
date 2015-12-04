@@ -6,7 +6,7 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 13:25:55 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/12/03 18:02:21 by mbouhier         ###   ########.fr       */
+/*   Updated: 2015/12/04 11:05:10 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	while (count < n)
 	{
 		str_2[count] = str_1[count];
-	   count++;
+		count++;
 	}
 	return (dst);
 }
