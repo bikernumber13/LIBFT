@@ -6,29 +6,35 @@
 /*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 15:44:24 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/12/04 17:31:51 by mbouhier         ###   ########.fr       */
+/*   Updated: 2016/01/02 11:08:02 by mbouhier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	int		len_s1;
-	int		len_s2;
-	char	*str;
-	char	*str2;
+	unsigned int	len;
+	unsigned int	count1;
+	unsigned int	count2;
+	char			*buf;
 
-	if (!s1 || !s2)
-		return (NULL);
-	len_s1 = ft_strlen(s1);
-	if ((str = (char *)malloc(sizeof(*str) * (len_s1 + 1))) == NULL)
-		return (NULL);
-	str = ft_strcpy(str, (char*)s1);
-	len_s2 = ft_strlen(s2);
-	if ((str2 = (char *)malloc(sizeof(*str2) * (len_s1 + len_s2 + 1))) == NULL)
-		return (NULL);
-	str2 = ft_strcat(str, (char*)s2);
-	return (str2);
+	count1 = 0;
+	if (s1 && s2)
+	{
+		len = ft_strlen(s1) + ft_strlen(s2);
+		if ((buf = (char *)malloc(sizeof(char *) * len + 1)) == NULL)
+			return (NULL);
+		while (count1 < len && s1[count1] != '\0')
+		{
+			buf[count1] = s1[count1];
+			count1++;
+		}
+		count2 = 0;
+		while (count1 < len && s2[count2] != '\0')
+			buf[count1++] = s2[count2++];
+		buf[count1] = '\0';
+		return (buf);
+	}
+	return (0);
 }
