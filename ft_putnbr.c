@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbouhier <mbouhier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maboukra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 14:07:45 by mbouhier          #+#    #+#             */
-/*   Updated: 2015/11/30 18:44:57 by mbouhier         ###   ########.fr       */
+/*   Created: 2015/11/27 13:35:57 by maboukra          #+#    #+#             */
+/*   Updated: 2016/01/04 14:48:07 by maboukra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,24 @@
 
 void	ft_putnbr(int n)
 {
-	ft_putstr(ft_itoa(n));
+	if (n == -2147483648)
+	{
+		ft_putnbr(-214748364);
+		ft_putnbr(8);
+	}
+	else
+	{
+		if (n < 0)
+		{
+			n = -n;
+			ft_putchar('-');
+		}
+		if (n > 9)
+		{
+			ft_putnbr(n / 10);
+			ft_putnbr(n % 10);
+		}
+		else
+			ft_putchar(n + '0');
+	}
 }
